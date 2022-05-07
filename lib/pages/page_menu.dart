@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:muslims_app/pages/quran/image_slideshow.dart';
+import 'package:muslims_app/pages/renungan/model/renungan.dart';
+import 'package:muslims_app/pages/renungan/provider/renungan_provider.dart';
+import 'package:muslims_app/pages/renungan/widget/renungan_item.dart';
 import 'package:muslims_app/theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:muslims_app/widget/menu_item.dart';
@@ -31,6 +34,8 @@ class _MenuPageState extends State<MenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    var renunganProvider = Provider.of<RenunganProvider>(context);
+    renunganProvider.getRenungan();
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(
@@ -178,6 +183,41 @@ class _MenuPageState extends State<MenuPage> {
                         SizedBox(
                           height: 10,
                         ),
+
+                        //Renungan title
+                        Padding(
+                            padding: EdgeInsets.symmetric(horizontal: edge),
+                            child: Text(
+                              "Renungan..",
+                              style: whiteTextStyle.copyWith(fontSize: 20),
+                            )),
+                        //renungan body
+                        Padding(
+                            padding: EdgeInsets.symmetric(horizontal: edge),
+                            child: FutureBuilder(
+                                future: renunganProvider.getRenungan(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData) {
+                                    List<Renungan> data = snapshot.data;
+                                    int index = 0;
+                                    return Column(
+                                      children: data.map((item) {
+                                        return Container(
+                                          height: 400,
+
+                                          margin: EdgeInsets.only(top: 20),
+                                          // margin: EdgeInsets.only(
+                                          //   top: index == 1 ? 0 : 15,
+                                          // ),
+                                          child: RenunganItem(item),
+                                        );
+                                      }).toList(),
+                                    );
+                                  }
+                                  return Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                }))
                       ]),
                 ]))));
   }
