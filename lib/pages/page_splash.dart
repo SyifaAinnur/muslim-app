@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:muslims_app/pages/page_menu.dart';
 import 'package:muslims_app/theme.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 
@@ -58,7 +59,7 @@ class PageSplash extends StatelessWidget {
       Duration(seconds: 10),
       () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-          
+          return MenuPage();
         }));
       },
     );
