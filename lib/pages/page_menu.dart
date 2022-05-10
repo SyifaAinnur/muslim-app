@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:muslims_app/pages/page_main.dart';
 import 'package:muslims_app/pages/quran/image_slideshow.dart';
 import 'package:muslims_app/pages/renungan/model/renungan.dart';
 import 'package:muslims_app/pages/renungan/provider/renungan_provider.dart';
@@ -70,13 +71,13 @@ class _MenuPageState extends State<MenuPage> {
                               children: [
                                 MenuItem(
                                   onTapAction: () {
-                                    // Navigator.of(context).pushReplacement(
-                                    //   MaterialPageRoute(
-                                    //     builder: (_) {
-                                    //       return PageMain();
-                                    //     },
-                                    //   ),
-                                    // );
+                                    Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                        builder: (_) {
+                                          return PageMain();
+                                        },
+                                      ),
+                                    );
                                   },
                                   image: 'assets/quran.png',
                                   title: 'Al-Qur\'an',
