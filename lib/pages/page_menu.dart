@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:muslims_app/pages/page_jadwal_sholat.dart';
 import 'package:muslims_app/pages/page_main.dart';
 import 'package:muslims_app/pages/quran/image_slideshow.dart';
 import 'package:muslims_app/pages/renungan/model/renungan.dart';
@@ -84,12 +85,12 @@ class _MenuPageState extends State<MenuPage> {
                                 ),
                                 MenuItem(
                                   onTapAction: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //     builder: (context) => PageJadwal(),
-                                    //   ),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => PageJadwal(),
+                                      ),
+                                    );
                                   },
                                   image: 'assets/praying.png',
                                   title: 'Jadwal\nSholat',
