@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muslims_app/pages/dzikir/dzikirpagi_page.dart';
+import 'package:muslims_app/pages/dzikir/dzikirpetang_page.dart';
 import 'package:muslims_app/theme.dart';
 import 'package:muslims_app/pages/page_menu.dart';
 import 'package:lottie/lottie.dart';
@@ -50,11 +51,11 @@ class PageDzikir extends StatelessWidget {
                     ),
                                         CardMenu(
                         onTapAction: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => TampilanPetang()));
-                          // openNewSreen(context, TampilanPetang());
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                              builder: (context) => TampilanPetang()));
+                          
                         },
                         imgUrl:
                             "https://assets7.lottiefiles.com/packages/lf20_Ck4ANs.json",
