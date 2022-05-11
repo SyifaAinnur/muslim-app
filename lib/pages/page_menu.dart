@@ -66,7 +66,7 @@ class _MenuPageState extends State<MenuPage> {
                         ),
                         SizedBox(height: 15),
                         Padding(
-                            padding: EdgeInsets.symmetric(horizontal: edge),
+                            padding: EdgeInsets.symmetric(horizontal: 14),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -126,7 +126,7 @@ class _MenuPageState extends State<MenuPage> {
                           height: 20,
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: edge),
+                          padding: EdgeInsets.symmetric(horizontal: 14),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

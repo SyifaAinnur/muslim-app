@@ -321,7 +321,7 @@ class _PageMainState extends State<PageMain> {
                           ' | ' +
                           listHasil[index].ayat +
                           ' ayat',
-                      Size.size14,
+                      Size.size12,
                       Colors.grey,
                       FontWeight.normal,
                       2,
