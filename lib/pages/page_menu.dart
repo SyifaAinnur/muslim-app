@@ -3,6 +3,7 @@ import 'package:muslims_app/pages/dzikir_page.dart';
 import 'package:muslims_app/pages/page_asmaulhusna.dart';
 import 'package:muslims_app/pages/page_jadwal_sholat.dart';
 import 'package:muslims_app/pages/page_main.dart';
+import 'package:muslims_app/pages/qiblat/qiblat_page.dart';
 import 'package:muslims_app/pages/quran/image_slideshow.dart';
 import 'package:muslims_app/pages/renungan/model/renungan.dart';
 import 'package:muslims_app/pages/renungan/provider/renungan_provider.dart';
@@ -134,13 +135,13 @@ class _MenuPageState extends State<MenuPage> {
                             children: [
                               MenuItem(
                                 onTapAction: () {
-                                  // Navigator.of(context).pushReplacement(
-                                  //   MaterialPageRoute(
-                                  //     builder: (_) {
-                                  //       return PageQiblat();
-                                  //     },
-                                  //   ),
-                                  // );
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                      builder: (_) {
+                                        return PageQiblat();
+                                      },
+                                    ),
+                                  );
                                 },
                                 image: 'assets/mecca.png',
                                 title: 'Qiblat',
