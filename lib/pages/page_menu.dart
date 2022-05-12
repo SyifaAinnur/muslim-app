@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:muslims_app/pages/doa/page_doa.dart';
 import 'package:muslims_app/pages/dzikir_page.dart';
 import 'package:muslims_app/pages/page_asmaulhusna.dart';
 import 'package:muslims_app/pages/page_jadwal_sholat.dart';
@@ -148,12 +149,12 @@ class _MenuPageState extends State<MenuPage> {
                               ),
                               MenuItem(
                                 onTapAction: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => PageDoa(),
-                                  //   ),
-                                  // );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => PageDoa(),
+                                    ),
+                                  );
                                 },
                                 image: 'assets/pray.png',
                                 title: 'Doa Harian',
