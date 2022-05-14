@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:muslims_app/pages/doa/page_doa.dart';
 import 'package:muslims_app/pages/dzikir_page.dart';
+import 'package:muslims_app/pages/juz-ama/page_juz-ama.dart';
 import 'package:muslims_app/pages/page_asmaulhusna.dart';
 import 'package:muslims_app/pages/page_panduan.dart';
 import 'package:muslims_app/pages/page_main.dart';
@@ -161,12 +162,12 @@ class _MenuPageState extends State<MenuPage> {
                               ),
                               MenuItem(
                                 onTapAction: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => PageDzikir(),
-                                  //   ),
-                                  // );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => PageJuzama(),
+                                    ),
+                                  );
                                 },
                                 image: 'assets/mosque.png',
                                 title: 'Khazanah',
