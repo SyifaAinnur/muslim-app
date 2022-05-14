@@ -85,6 +85,7 @@ flutter:
     - assets/data/niatshalat.json
     - assets/data/bacaanshalat.json
     - assets/data/niatwudhu.json
+    - assets/data/bacaanadzan.json
     - assets/pic/bg_picture.png
     - assets/pic/pp_profil.jpg
     - assets/pic/instagram.png

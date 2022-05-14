@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:muslims_app/pages/page_menu.dart';
 import 'package:muslims_app/pages/panduan/bacaanSholat_page.dart';
+import 'package:muslims_app/pages/panduan/niatAdzan_page.dart';
 import 'package:muslims_app/pages/panduan/niatSholat_page.dart';
 import 'package:muslims_app/pages/panduan/niatWudhu_page.dart';
 import 'package:muslims_app/theme.dart';
@@ -78,7 +79,12 @@ class PageSholat extends StatelessWidget {
                       
                 ),
                 CardSection(
-                  onTapAction: () {},
+                  onTapAction: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => NiatAdzan()));
+                  },
                   name: 'Niat adzan',
                   imageUrl:
                       "https://assets10.lottiefiles.com/packages/lf20_nbrlt9yz.json",
