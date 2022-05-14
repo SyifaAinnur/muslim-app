@@ -15,25 +15,32 @@ class CardSection extends StatelessWidget {
     return GestureDetector(
         onTap: onTapAction,
         child: Container(
-          width: 200,
-          height: 243,
-          margin: EdgeInsets.only(left: 24),
+          width: 154,
+          height: 180,
+          margin: EdgeInsets.all(10),
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18), color: whiteColor),
-          child: Stack(children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: BackgroundImage(
-                    imageUrl,
+              child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                  horizontal: 1,
+                  vertical: 1,
                   ),
-                ),
-                Container(
-                      margin: EdgeInsets.only(left: 10),
-                      child: Column(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(child: Center(
+                        child: BackgroundImage(
+                            imageUrl,
+                          ),
+                          
+                      ),
+                      
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                             Text(
@@ -42,11 +49,10 @@ class CardSection extends StatelessWidget {
                             ),
                           
                         ],
-                      ),
-                    )
-              ],
-            )
-          ]),
+                      )
+                    ],
+                  ),
+            ),
         ));
   }
 }
