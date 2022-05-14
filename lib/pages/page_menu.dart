@@ -92,7 +92,7 @@ class _MenuPageState extends State<MenuPage> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => PageJadwal(),
+                                        builder: (context) => PageSholat(),
                                       ),
                                     );
                                   },

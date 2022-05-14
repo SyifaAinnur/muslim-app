@@ -4,7 +4,7 @@ import 'package:lottie/lottie.dart';
 class BackgroundImage extends StatelessWidget {
   final String imageUrl;
 
-  BackgroundImage(this.imageUrl);
+  BackgroundImage(this.imageUrl, {int width, int height});
 
   @override
   Widget build(BuildContext context) {
