@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:muslims_app/pages/page_menu.dart';
-import 'package:muslims_app/pages/sholat/niatSholat_page.dart';
+import 'package:muslims_app/pages/panduan/bacaanSholat_page.dart';
+import 'package:muslims_app/pages/panduan/niatSholat_page.dart';
+import 'package:muslims_app/pages/panduan/niatWudhu_page.dart';
 import 'package:muslims_app/theme.dart';
 import 'package:muslims_app/widget/card_section.dart';
 
@@ -37,7 +39,7 @@ class PageSholat extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          cardPage(),
+                          cardPage(context),
                           SizedBox(
                             height: 20,
                           ),
@@ -57,14 +59,19 @@ class PageSholat extends StatelessWidget {
     );
   }
 
-  Widget cardPage() {
+  Widget cardPage(BuildContext context) {
     return Container(
        child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
             child: Row(
               children: [
                 CardSection(
-                  onTapAction: () {},
+                  onTapAction: () {
+                    Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NiatWudhu()));
+                  },
                   name: 'Niat Wudhu',
                   imageUrl:
                       "https://assets10.lottiefiles.com/packages/lf20_nbrlt9yz.json",
@@ -102,7 +109,12 @@ class PageSholat extends StatelessWidget {
                       "https://assets10.lottiefiles.com/packages/lf20_nbrlt9yz.json",
                 ),
                 CardSection(
-                  onTapAction: () {},
+                  onTapAction: () {
+                    Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BacaanSholat()));
+                  },
                   name: 'Panduan Sholat',
                   imageUrl:
                       "https://assets8.lottiefiles.com/packages/lf20_sk5C0K.json",
