@@ -83,6 +83,7 @@ flutter:
   assets:
     - assets/
     - assets/data/niatshalat.json
+    - assets/data/bacaanshalat.json
     - assets/pic/bg_picture.png
     - assets/pic/pp_profil.jpg
     - assets/pic/instagram.png

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart' as rootBundle;
 import 'package:flutter/material.dart';
-import 'package:muslims_app/pages/models/mode_niat.dart';
+import 'package:muslims_app/pages/models/model_niat.dart';
 
 class NiatSholat extends StatefulWidget {
 
