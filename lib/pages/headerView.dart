@@ -30,7 +30,23 @@ class _HeaderViewState extends State<HeaderView> {
             ],
           ),
         ),
-            )
+                actions: [
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              margin: EdgeInsets.only(right: 20),
+              width: 30,
+              height: 30,
+              child: Image.asset(
+                "assets/asr.png",
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+        ],
+        backgroundColor: Color(0xFFEC2028),
+        elevation: 0,
+       ),     
     );
   }
 }

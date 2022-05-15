@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:muslims_app/pages/doa/page_doa.dart';
 import 'package:muslims_app/pages/dzikir_page.dart';
+import 'package:muslims_app/pages/headerView.dart';
 import 'package:muslims_app/pages/juz-ama/page_juz-ama.dart';
 import 'package:muslims_app/pages/page_asmaulhusna.dart';
 import 'package:muslims_app/pages/page_panduan.dart';
@@ -14,6 +17,7 @@ import 'package:muslims_app/theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:muslims_app/widget/menu_item.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -44,188 +48,325 @@ class _MenuPageState extends State<MenuPage> {
     var renunganProvider = Provider.of<RenunganProvider>(context);
     renunganProvider.getRenungan();
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
-            bottom: false,
-            child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xff29286C),
-                        Color(0xffE69ED8),
-                      ]),
+        appBar: AppBar(
+          centerTitle: false,
+          title: RichText(
+            text: TextSpan(
+              text: "Hai, ",
+              style: TextStyle(
+                fontSize: 18,
+              ),
+              children: [
+                TextSpan(
+                  text: "Syifa",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              ],
+            ),
+          ),
+          actions: [
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                margin: EdgeInsets.only(right: 20),
+                width: 30,
+                height: 30,
+                child: Image.asset(
+                  "assets/asr.png",
+                  fit: BoxFit.contain,
                 ),
-                child: ListView(children: [
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          child: ImageSlide(),
-                          // width: double.infinity,
-                          // child: Image.asset(
-                          //   'assets/logo1.png',
-                          //   width: 300,
-                          // ),
-                        ),
-                        SizedBox(height: 15),
-                        Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 14),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MenuItem(
-                                  onTapAction: () {
-                                    Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                        builder: (_) {
-                                          return PageMain();
-                                        },
-                                      ),
-                                    );
-                                  },
-                                  image: 'assets/quran.png',
-                                  title: 'Al-Qur\'an',
-                                ),
-                                MenuItem(
-                                  onTapAction: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => PageSholat(),
-                                      ),
-                                    );
-                                  },
-                                  image: 'assets/praying.png',
-                                  title: 'Panduan\nSholat',
-                                ),
-                                MenuItem(
-                                  onTapAction: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => PageDzikir(),
-                                      ),
-                                    );
-                                  },
-                                  image: 'assets/muslim.png',
-                                  title: 'Dzikir',
-                                ),
-                                MenuItem(
-                                  onTapAction: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => PageAsmaulHusna(),
-                                      ),
-                                    );
-                                  },
-                                  image: 'assets/bismillah.png',
-                                  title: 'Asmaul\nHusna',
-                                ),
+              ),
+            ),
+          ],
+          backgroundColor: Color(0xFFEC2028),
+          elevation: 0,
+        ),
+        resizeToAvoidBottomInset: false,
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xff29286C),
+                  Color(0xffE69ED8),
+                ]),
+          ),
+          child: Stack(children: [
+            ClipPath(
+              clipper: ClipPathClass(),
+              child: Container(
+                height: 250,
+                width: Get.width,
+                color: Color(0xFFEC2028),
+              ),
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Column(children: [
+                  Column(children: [
+                    ClipPath(
+                        clipper: ClipInfoClass(),
+                        child: Container(
+                          padding: EdgeInsets.all(15),
+                          margin: EdgeInsets.symmetric(horizontal: 25),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFE52D27),
+                                Color(0xFFB31217),
                               ],
-                            )),
-                        //menu kedua
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 14),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              MenuItem(
-                                onTapAction: () {
-                                  Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                      builder: (_) {
-                                        return PageQiblat();
-                                      },
-                                    ),
-                                  );
-                                },
-                                image: 'assets/mecca.png',
-                                title: 'Qiblat',
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Loacation",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Icon(Icons.location_on)
+                                ],
                               ),
-                              MenuItem(
-                                onTapAction: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => PageDoa(),
-                                    ),
-                                  );
-                                },
-                                image: 'assets/pray.png',
-                                title: 'Doa Harian',
+                              SizedBox(height: 20),
+                              Text(
+                                "Sisa Pulsa Anda",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                              MenuItem(
-                                onTapAction: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => PageJuzama(),
+                              SizedBox(height: 10),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Rp34.000",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                  );
-                                },
-                                image: 'assets/mosque.png',
-                                title: 'Khazanah',
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      "Isi Pulsa",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Color(0xFFF7B731),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              MenuItem(
-                                onTapAction: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => PageCeramah(),
-                                  //   ),
-                                  // );
-                                },
-                                image: 'assets/man.png',
-                                title: 'Ceramah',
+                              SizedBox(height: 10),
+                              Divider(
+                                color: Colors.black,
+                              ),
+                              SizedBox(height: 10),
+                              SizedBox(
+                                height: 10,
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        ))
+                  ]),
+                  Column(
+                    
+                    children: [
+                      Center(
+                        
+                        child: ClipRRect(
+                            child: Container(
+                              
+                              margin: EdgeInsets.only(top: 20),
+                              width: 360,
+                              height: 200,
+                              
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 14),
+                                child: Column(children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      MenuItem(
+                                        onTapAction: () {
+                                          Navigator.of(context).pushReplacement(
+                                            MaterialPageRoute(
+                                              builder: (_) {
+                                                return PageMain();
+                                              },
+                                            ),
+                                          );
+                                        },
+                                        image: 'assets/quran.png',
+                                        title: 'Al-Qur\'an',
+                                      ),
+                                      MenuItem(
+                                        onTapAction: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  PageSholat(),
+                                            ),
+                                          );
+                                        },
+                                        image: 'assets/praying.png',
+                                        title: 'Panduan\nSholat',
+                                      ),
+                                      MenuItem(
+                                        onTapAction: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  PageDzikir(),
+                                            ),
+                                          );
+                                        },
+                                        image: 'assets/muslim.png',
+                                        title: 'Dzikir',
+                                      ),
+                                      MenuItem(
+                                        onTapAction: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  PageAsmaulHusna(),
+                                            ),
+                                          );
+                                        },
+                                        image: 'assets/bismillah.png',
+                                        title: 'Asmaul\nHusna',
+                                      ),
+                                    ],
+                                  ),
+                                  Spacer(),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      MenuItem(
+                                        onTapAction: () {
+                                          Navigator.of(context).pushReplacement(
+                                            MaterialPageRoute(
+                                              builder: (_) {
+                                                return PageQiblat();
+                                              },
+                                            ),
+                                          );
+                                        },
+                                        image: 'assets/mecca.png',
+                                        title: 'Qiblat',
+                                      ),
+                                      MenuItem(
+                                        onTapAction: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => PageDoa(),
+                                            ),
+                                          );
+                                        },
+                                        image: 'assets/pray.png',
+                                        title: 'Doa Harian',
+                                      ),
+                                      MenuItem(
+                                        onTapAction: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  PageJuzama(),
+                                            ),
+                                          );
+                                        },
+                                        image: 'assets/mosque.png',
+                                        title: 'Khazanah',
+                                      ),
+                                      MenuItem(
+                                        onTapAction: () {
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //     builder: (context) => PageCeramah(),
+                                          //   ),
+                                          // );
+                                        },
+                                        image: 'assets/man.png',
+                                        title: 'Ceramah',
+                                      ),
+                                    ],
+                                  ),
+                                  Spacer(),
+                                ]),
+                              ),
+                            ),
 
-                        //Renungan title
-                        Padding(
-                            padding: EdgeInsets.symmetric(horizontal: edge),
-                            child: Text(
-                              "Renungan..",
-                              style: whiteTextStyle.copyWith(fontSize: 20),
-                            )),
-                        //renungan body
-                        Padding(
-                            padding: EdgeInsets.symmetric(horizontal: edge),
-                            child: FutureBuilder(
-                                future: renunganProvider.getRenungan(),
-                                builder: (context, snapshot) {
-                                  if (snapshot.hasData) {
-                                    List<Renungan> data = snapshot.data;
-                                    int index = 0;
-                                    return Column(
-                                      children: data.map((item) {
-                                        return Container(
-                                          height: 400,
-
-                                          margin: EdgeInsets.only(top: 20),
-                                          // margin: EdgeInsets.only(
-                                          //   top: index == 1 ? 0 : 15,
-                                          // ),
-                                          child: RenunganItem(item),
-                                        );
-                                      }).toList(),
-                                    );
-                                  }
-                                  return Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                }))
-                      ]),
-                ]))));
+                            //menu kedua
+                          ),
+                        ),
+                    ],
+                  ),
+                ]))
+          ]),
+        ));
   }
+}
+
+class ClipInfoClass extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height);
+    path.lineTo(size.width - 80, size.height);
+    path.lineTo(size.width, size.height - 80);
+    path.lineTo(size.width, 0);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
+}
+
+class ClipPathClass extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height - 60);
+    path.quadraticBezierTo(
+      size.width / 2,
+      size.height,
+      size.width,
+      size.height - 60,
+    );
+    path.lineTo(size.width, 0);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }
