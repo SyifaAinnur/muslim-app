@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:muslims_app/pages/juz-ama/juz-ama_data.dart';
+import 'package:muslims_app/pages/hadits/hadits.dart';
+import 'package:muslims_app/pages/hadits/hadits_data.dart';
 import 'package:muslims_app/pages/models/dzikir/data_dzikir.dart';
 import 'package:muslims_app/widget/dzikir_detail_item.dart';
 import 'package:page_indicator/page_indicator.dart';
 
-class PageJuzama extends StatelessWidget {
+class PageHadits extends StatelessWidget {
 
 
   @override
@@ -16,11 +17,11 @@ class PageJuzama extends StatelessWidget {
       ),
       body: PageIndicatorContainer(
         child: PageView.builder(
-          itemCount: juzama.length,
+          itemCount: hadits.length,
           itemBuilder: (context, index) {
-              String judul = juzama[index].judul;
-              String arab = juzama[index].bacaanArab;
-              String arti = juzama[index].arti;
+              String judul = hadits[index].judul;
+              String arab = hadits[index].bacaanArab;
+              String arti = hadits[index].arti;
 
               return ItemDzikir(judul, arab, arti);
           },

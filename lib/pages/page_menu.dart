@@ -1,13 +1,15 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:muslims_app/api/aya_apiService.dart';
 import 'package:muslims_app/pages/ceramah/page_ceramah.dart';
 import 'package:muslims_app/pages/doa/page_doa.dart';
 import 'package:muslims_app/pages/dzikir_page.dart';
+import 'package:muslims_app/pages/hadits/page_hadits.dart';
 import 'package:muslims_app/pages/headerView.dart';
-import 'package:muslims_app/pages/juz-ama/page_juz-ama.dart';
 import 'package:muslims_app/pages/models/ayat_of_the_day.dart';
+import 'package:muslims_app/pages/models/location_services.dart';
 import 'package:muslims_app/pages/page_asmaulhusna.dart';
 import 'package:muslims_app/pages/page_panduan.dart';
 import 'package:muslims_app/pages/page_main.dart';
@@ -21,6 +23,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:muslims_app/widget/menu_item.dart';
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
+import 'package:hijri/hijri_calendar.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -46,10 +49,21 @@ class _MenuPageState extends State<MenuPage> {
     return result;
   }
 
+  void initState() {
+    super.initState();
+    LocationServices().getCoordinate();
+  }
+
   AyaApiServices _ayaApiServices = AyaApiServices();
 
   @override
   Widget build(BuildContext context) {
+    var _size = MediaQuery.of(context).size;
+    HijriCalendar.setLocal('ar');
+    var _hijri = HijriCalendar.now();
+    var day = DateTime.now();
+    var format = DateFormat('EEE , d MMM yyyy');
+    var formatted = format.format(day);
     var renunganProvider = Provider.of<RenunganProvider>(context);
     renunganProvider.getRenungan();
     return Scaffold(
@@ -116,289 +130,339 @@ class _MenuPageState extends State<MenuPage> {
                     ClipPath(
                         clipper: ClipInfoClass(),
                         child: Container(
-                          padding: EdgeInsets.all(15),
-                          margin: EdgeInsets.symmetric(horizontal: 25),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color(0xFFE52D27),
-                                Color(0xFFB31217),
-                              ],
+                            padding: EdgeInsets.all(15),
+                            margin: EdgeInsets.symmetric(horizontal: 25),
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFE52D27),
+                                  Color(0xFFB31217),
+                                ],
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Loacation",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Icon(Icons.location_on)
-                                ],
-                              ),
-                              SizedBox(height: 20),
-                              Text(
-                                "Sisa Pulsa Anda",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(height: 10),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Rp34.000",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Isi Pulsa",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width: 200,
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: FutureBuilder(
+                                          future: LocationServices()
+                                              .getCoordinate(),
+                                          builder: (context, snapshot) {
+                                            if (snapshot.hasData) {
+                                              return Text(
+                                                snapshot.data.toString(),
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.white),
+                                              );
+                                            } else {
+                                              return Text(
+                                                'Loading...',
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.white),
+                                              );
+                                            }
+                                          },
+                                        ),
                                       ),
-                                    ),
-                                    style: ElevatedButton.styleFrom(
-                                      primary: Color(0xFFF7B731),
-                                    ),
+                                      IconButton(
+                                          onPressed: () {
+                                            LocationServices().getCoordinate();
+                                          },
+                                          icon: Icon(
+                                            Icons.location_on,
+                                            color: Colors.white,
+                                          )),
+                                    ],
                                   ),
-                                ],
-                              ),
-                              SizedBox(height: 10),
-                              Divider(
-                                color: Colors.black,
-                              ),
-                              SizedBox(height: 10),
-                              SizedBox(
-                                height: 10,
-                              ),
-                            ],
-                          ),
-                        ))
+                                  SizedBox(height: 20),
+                                  Divider(
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(height: 10),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        formatted,
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 18),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(children: <InlineSpan>[
+                                          WidgetSpan(
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(4.0),
+                                              child: Text(
+                                                _hijri.hDay.toString(),
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ),
+                                          WidgetSpan(
+                                            child: Padding(
+                                              padding: EdgeInsets.all(4.0),
+                                              child: Text(
+                                                _hijri.longMonthName,
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                          WidgetSpan(
+                                            child: Padding(
+                                              padding: EdgeInsets.all(4),
+                                              child: Text(
+                                                '${_hijri.hYear} AH',
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ),
+                                        ]),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                    ],
+                                  ),
+                                ])))
                   ]),
-                  Column(  
+                  Column(
                     children: [
                       Center(
-                        
                         child: ClipRRect(
-                            child: Container(
-                              
-                              margin: EdgeInsets.only(top: 20),
-                              width: 360,
-                              height: 200,
-                              
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 14),
-                                child: Column(children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      MenuItem(
-                                        onTapAction: () {
-                                          Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(
-                                              builder: (_) {
-                                                return PageMain();
-                                              },
-                                            ),
-                                          );
-                                        },
-                                        image: 'assets/quran.png',
-                                        title: 'Al-Qur\'an',
-                                      ),
-                                      MenuItem(
-                                        onTapAction: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  PageSholat(),
-                                            ),
-                                          );
-                                        },
-                                        image: 'assets/praying.png',
-                                        title: 'Panduan\nSholat',
-                                      ),
-                                      MenuItem(
-                                        onTapAction: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  PageDzikir(),
-                                            ),
-                                          );
-                                        },
-                                        image: 'assets/muslim.png',
-                                        title: 'Dzikir',
-                                      ),
-                                      MenuItem(
-                                        onTapAction: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  PageAsmaulHusna(),
-                                            ),
-                                          );
-                                        },
-                                        image: 'assets/bismillah.png',
-                                        title: 'Asmaul\nHusna',
-                                      ),
-                                    ],
-                                  ),
-                                  Spacer(),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      MenuItem(
-                                        onTapAction: () {
-                                          Navigator.of(context).pushReplacement(
-                                            MaterialPageRoute(
-                                              builder: (_) {
-                                                return PageQiblat();
-                                              },
-                                            ),
-                                          );
-                                        },
-                                        image: 'assets/mecca.png',
-                                        title: 'Qiblat',
-                                      ),
-                                      MenuItem(
-                                        onTapAction: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => PageDoa(),
-                                            ),
-                                          );
-                                        },
-                                        image: 'assets/pray.png',
-                                        title: 'Doa Harian',
-                                      ),
-                                      MenuItem(
-                                        onTapAction: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  PageJuzama(),
-                                            ),
-                                          );
-                                        },
-                                        image: 'assets/mosque.png',
-                                        title: 'Khazanah',
-                                      ),
-                                      MenuItem(
-                                        onTapAction: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => PageCeramah(),
-                                            ),
-                                          );
-                                        },
-                                        image: 'assets/man.png',
-                                        title: 'Ceramah',
-                                      ),
-                                    ],
-                                  ),
-                                  Spacer(),
-                                ]),
-                              ),
+                          child: Container(
+                            margin: EdgeInsets.only(top: 20),
+                            width: 360,
+                            height: 200,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 14),
+                              child: Column(children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    MenuItem(
+                                      onTapAction: () {
+                                        Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                            builder: (_) {
+                                              return PageMain();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                      image: 'assets/quran.png',
+                                      title: 'Al-Qur\'an',
+                                    ),
+                                    MenuItem(
+                                      onTapAction: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PageSholat(),
+                                          ),
+                                        );
+                                      },
+                                      image: 'assets/praying.png',
+                                      title: 'Panduan\nSholat',
+                                    ),
+                                    MenuItem(
+                                      onTapAction: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PageDzikir(),
+                                          ),
+                                        );
+                                      },
+                                      image: 'assets/muslim.png',
+                                      title: 'Dzikir',
+                                    ),
+                                    MenuItem(
+                                      onTapAction: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PageAsmaulHusna(),
+                                          ),
+                                        );
+                                      },
+                                      image: 'assets/bismillah.png',
+                                      title: 'Asmaul\nHusna',
+                                    ),
+                                  ],
+                                ),
+                                Spacer(),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    MenuItem(
+                                      onTapAction: () {
+                                        Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                            builder: (_) {
+                                              return PageQiblat();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                      image: 'assets/mecca.png',
+                                      title: 'Qiblat',
+                                    ),
+                                    MenuItem(
+                                      onTapAction: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PageDoa(),
+                                          ),
+                                        );
+                                      },
+                                      image: 'assets/pray.png',
+                                      title: 'Doa Harian',
+                                    ),
+                                    MenuItem(
+                                      onTapAction: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PageHadits(),
+                                          ),
+                                        );
+                                      },
+                                      image: 'assets/mosque.png',
+                                      title: 'Khazanah',
+                                    ),
+                                    MenuItem(
+                                      onTapAction: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PageCeramah(),
+                                          ),
+                                        );
+                                      },
+                                      image: 'assets/man.png',
+                                      title: 'Ceramah',
+                                    ),
+                                  ],
+                                ),
+                                Spacer(),
+                              ]),
                             ),
-
-                            //menu kedua
                           ),
+
+                          //menu kedua
                         ),
+                      ),
                     ],
                   ),
                   Expanded(
                     child: SingleChildScrollView(
-                      padding: EdgeInsetsDirectional.only(top: 10,bottom: 20),
+                      padding: EdgeInsetsDirectional.only(top: 10, bottom: 20),
                       child: Column(
                         children: [
                           FutureBuilder<AyaOfTheDay>(
                             future: _ayaApiServices.getAyaOfTheDay(),
-                            builder: (context, snapshot){
-                              switch(snapshot.connectionState){
+                            builder: (context, snapshot) {
+                              switch (snapshot.connectionState) {
                                 case ConnectionState.none:
-                                return Icon(Icons.sync_problem);
+                                  return Icon(Icons.sync_problem);
                                 case ConnectionState.waiting:
                                 case ConnectionState.active:
-                                return CircularProgressIndicator();
+                                  return CircularProgressIndicator();
                                 case ConnectionState.done:
-                                return Container(
-                                  margin: EdgeInsetsDirectional.all(16),
-                              padding: EdgeInsetsDirectional.all(20),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(32),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 3,
-                                    spreadRadius: 1,
-                                    offset: Offset(0,1),
-                                  )
-                                ]
-                              ),
-                                                            child: Column(
-                                children: [
-                                  Text("Quran Ayat of the Day",
-                                    style: TextStyle(color: Colors.black,
-                                        fontWeight: FontWeight.bold,fontSize: 18),),
-                                  Divider(color: Colors.black,thickness: 0.5,),
-                                  Text(
-                                    snapshot.data.arText,
-                                    style: TextStyle(color: Colors.black54, fontSize: 18),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Text(
-                                    snapshot.data.enTran,
-                                    style: TextStyle(color: Colors.black54, fontSize: 18),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  RichText(
-                                    text: TextSpan(
-                                        children: <InlineSpan>[
-                                          WidgetSpan(
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Text(snapshot.data.surNumber.toString()
-                                              ,style: TextStyle(fontSize: 16),),
+                                  return Container(
+                                    margin: EdgeInsetsDirectional.all(16),
+                                    padding: EdgeInsetsDirectional.all(20),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(32),
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 3,
+                                            spreadRadius: 1,
+                                            offset: Offset(0, 1),
+                                          )
+                                        ]),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Quran Ayat of the Day",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18),
+                                        ),
+                                        Divider(
+                                          color: Colors.black,
+                                          thickness: 0.5,
+                                        ),
+                                        Text(
+                                          snapshot.data.arText,
+                                          style: TextStyle(
+                                              color: Colors.black54,
+                                              fontSize: 18),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        Text(
+                                          snapshot.data.enTran,
+                                          style: TextStyle(
+                                              color: Colors.black54,
+                                              fontSize: 18),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        RichText(
+                                          text: TextSpan(children: <InlineSpan>[
+                                            WidgetSpan(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Text(
+                                                  snapshot.data.surNumber
+                                                      .toString(),
+                                                  style:
+                                                      TextStyle(fontSize: 16),
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                          WidgetSpan(
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Text(snapshot.data.surEnName
-                                                  ,style: TextStyle(fontSize: 16)),
+                                            WidgetSpan(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Text(
+                                                    snapshot.data.surEnName,
+                                                    style: TextStyle(
+                                                        fontSize: 16)),
+                                              ),
                                             ),
-                                          ),
-                                        ]
+                                          ]),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                                );
+                                  );
                               }
                             },
                           )
