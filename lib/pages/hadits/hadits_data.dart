@@ -119,7 +119,7 @@ List<Hadits> hadits = [
   Hadits(
     "Hadits larangan Berburuk Sangka",
     "اِيَّاكُمْ وَالظَّنْ",
-    "\“AJauhilah olehmu berburuk sangka.” (HR. Muttafaq Alaih)\”",
+    "\“Jauhilah olehmu berburuk sangka.” (HR. Muttafaq Alaih)\”",
   ),
   Hadits(
     "Hadis Larangan Mencela Makanan",

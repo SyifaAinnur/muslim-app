@@ -26,7 +26,7 @@ class PageHadits extends StatelessWidget {
               return ItemDzikir(judul, arab, arti);
           },
         ),
-        length: 22,
+        length: 40,
         align: IndicatorAlign.top,
         indicatorSpace: 2.0,
         padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
