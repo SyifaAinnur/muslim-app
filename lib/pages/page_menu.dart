@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:muslims_app/api/aya_apiService.dart';
 import 'package:muslims_app/pages/doa/page_doa.dart';
 import 'package:muslims_app/pages/dzikir_page.dart';
 import 'package:muslims_app/pages/headerView.dart';
 import 'package:muslims_app/pages/juz-ama/page_juz-ama.dart';
+import 'package:muslims_app/pages/models/ayat_of_the_day.dart';
 import 'package:muslims_app/pages/page_asmaulhusna.dart';
 import 'package:muslims_app/pages/page_panduan.dart';
 import 'package:muslims_app/pages/page_main.dart';
@@ -42,6 +44,8 @@ class _MenuPageState extends State<MenuPage> {
     }
     return result;
   }
+
+  AyaApiServices _ayaApiServices = AyaApiServices();
 
   @override
   Widget build(BuildContext context) {
@@ -187,8 +191,7 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         ))
                   ]),
-                  Column(
-                    
+                  Column(  
                     children: [
                       Center(
                         
@@ -326,6 +329,81 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         ),
                     ],
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: EdgeInsetsDirectional.only(top: 10,bottom: 20),
+                      child: Column(
+                        children: [
+                          FutureBuilder<AyaOfTheDay>(
+                            future: _ayaApiServices.getAyaOfTheDay(),
+                            builder: (context, snapshot){
+                              switch(snapshot.connectionState){
+                                case ConnectionState.none:
+                                return Icon(Icons.sync_problem);
+                                case ConnectionState.waiting:
+                                case ConnectionState.active:
+                                return CircularProgressIndicator();
+                                case ConnectionState.done:
+                                return Container(
+                                  margin: EdgeInsetsDirectional.all(16),
+                              padding: EdgeInsetsDirectional.all(20),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(32),
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 3,
+                                    spreadRadius: 1,
+                                    offset: Offset(0,1),
+                                  )
+                                ]
+                              ),
+                                                            child: Column(
+                                children: [
+                                  Text("Quran Ayat of the Day",
+                                    style: TextStyle(color: Colors.black,
+                                        fontWeight: FontWeight.bold,fontSize: 18),),
+                                  Divider(color: Colors.black,thickness: 0.5,),
+                                  Text(
+                                    snapshot.data.arText,
+                                    style: TextStyle(color: Colors.black54, fontSize: 18),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Text(
+                                    snapshot.data.enTran,
+                                    style: TextStyle(color: Colors.black54, fontSize: 18),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  RichText(
+                                    text: TextSpan(
+                                        children: <InlineSpan>[
+                                          WidgetSpan(
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Text(snapshot.data.surNumber.toString()
+                                              ,style: TextStyle(fontSize: 16),),
+                                            ),
+                                          ),
+                                          WidgetSpan(
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Text(snapshot.data.surEnName
+                                                  ,style: TextStyle(fontSize: 16)),
+                                            ),
+                                          ),
+                                        ]
+                                    ),
+                                  ),
+                                ],
+                              ),
+                                );
+                              }
+                            },
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ]))
           ]),
