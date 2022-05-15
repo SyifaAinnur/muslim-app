@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:muslims_app/model/model.dart';
+import 'package:muslims_app/model/berita.dart';
 
 class BeritaProvider extends ChangeNotifier {
   getBerita() async {
