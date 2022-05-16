@@ -127,7 +127,8 @@ class _PageMainState extends State<PageMain> {
             SliverOverlapAbsorber(
               handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
               sliver: SliverAppBar(
-                backgroundColor: Color(0xff29286C),
+                
+                backgroundColor: Color(0xff6DDCCF),
                 pinned: true,
                 expandedHeight: 260,
                 forceElevated: scrolling,
@@ -315,7 +316,7 @@ class _PageMainState extends State<PageMain> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   styleText(listHasil[index].nama, Size.size24,
-                      Color(0xff29286C), FontWeight.normal, 1, null),
+                      Colors.black, FontWeight.normal, 1, null),
                   styleText(
                       listHasil[index].arti +
                           ' | ' +

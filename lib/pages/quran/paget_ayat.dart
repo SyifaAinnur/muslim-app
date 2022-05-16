@@ -48,7 +48,7 @@ class _PageAyatState extends State<PageAyat> {
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Color(0xff29286C),
+          backgroundColor: Color(0xff6DDCCF),
           title: Text(
             _suratNama,
             style: TextStyle(
@@ -88,7 +88,7 @@ class _PageAyatState extends State<PageAyat> {
                     margin: EdgeInsets.only(bottom: Size.size16),
                     child: JumpingDotsProgressIndicator(
                       fontSize: Size.size32,
-                      color: Color(0xff29286C),
+                      color: Color(0xff6DDCCF),
                     ),
                   ),
                 ),
@@ -187,7 +187,7 @@ class _PageAyatState extends State<PageAyat> {
               height: Size.size32,
               margin: EdgeInsets.only(right: Size.size16),
               decoration: BoxDecoration(
-                color: Color(0xff29286C),
+                color: Color(0xff6DDCCF),
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(8),
                   bottomRight: Radius.circular(8),
@@ -222,7 +222,7 @@ class _PageAyatState extends State<PageAyat> {
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: Size.size18,
-                        color: Color(0xff29286C),
+                        color: Colors.grey[600],
                       ),
                     ),
                   )
