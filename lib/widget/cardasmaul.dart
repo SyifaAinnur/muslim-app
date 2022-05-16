@@ -42,7 +42,7 @@ class CardAsmaul extends StatelessWidget {
               translate,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 10,
-              color: Color(0xffC4C6BF)
+              color: Color(0xff686D76)
               ),
             ),
           ],

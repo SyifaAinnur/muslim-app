@@ -48,7 +48,7 @@ class _PageCeramahState extends State<PageCeramah> {
         centerTitle: true,
         title: Text("Ceramah Pilihan"),
         elevation: 0,
-        backgroundColor: Color(0xff29286C),
+        backgroundColor: Color(0xff6DDCCF),
         leading: GestureDetector(
           onTap: () {
             /* Write listener code here */
@@ -67,8 +67,8 @@ class _PageCeramahState extends State<PageCeramah> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xff29286C),
-                Color(0xffE69ED8),
+                Color(0xff6DDCCF),
+                  Color(0xff61E2B6),
               ],
             ),
           ),

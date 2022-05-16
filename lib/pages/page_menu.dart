@@ -168,10 +168,12 @@ class _MenuPageState extends State<MenuPage> {
                                                     return Text(
                                                       snapshot.data.toString(),
                                                       style: TextStyle(
+                                                        height: 1.5,
                                                           fontSize: 16,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.normal,
                                                           color: Colors.black),
+                                                      
                                                     );
                                                   } else {
                                                     return Text(
@@ -370,7 +372,7 @@ class _MenuPageState extends State<MenuPage> {
                                         );
                                       },
                                       image: 'assets/mosque.png',
-                                      title: 'Khazanah',
+                                      title: 'Hadits\nPendek',
                                     ),
                                     MenuItem(
                                       onTapAction: () {

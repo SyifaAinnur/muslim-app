@@ -10,6 +10,7 @@ class TampilanPagi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff6DDCCF),
         centerTitle: true,
         title: Text("Dzikir Pagi"),
       ),

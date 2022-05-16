@@ -16,7 +16,8 @@ class PageQiblat extends StatelessWidget {
         centerTitle: true,
         title: Text("Qiblat"),
         elevation: 0,
-        backgroundColor: Color(0xff29286C),
+        backgroundColor: Color(0xff6DDCCF),
+
        leading: GestureDetector(
           onTap: () {
             /* Write listener code here */
@@ -34,8 +35,8 @@ class PageQiblat extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xff29286C),
-                Color(0xffE69ED8),
+                Color(0xff6DDCCF),
+                  Color(0xff61E2B6),
               ],
             )
           ),

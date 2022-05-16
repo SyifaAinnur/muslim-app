@@ -12,8 +12,9 @@ class PageHadits extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff6DDCCF),
         centerTitle: true,
-        title: Text("Dzikir Pagi"),
+        title: Text("Hadits Pendek"),
       ),
       body: PageIndicatorContainer(
         child: PageView.builder(
@@ -26,7 +27,7 @@ class PageHadits extends StatelessWidget {
               return ItemDzikir(judul, arab, arti);
           },
         ),
-        length: 40,
+        
         align: IndicatorAlign.top,
         indicatorSpace: 2.0,
         padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
