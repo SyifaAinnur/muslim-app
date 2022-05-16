@@ -58,6 +58,7 @@ dependencies:
   url_launcher: ^6.0.3
   get: ^4.6.1
   hijri: ^3.0.0
+  pk_skeleton: ^0.0.2
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +89,7 @@ flutter:
     - assets/data/bacaanshalat.json
     - assets/data/niatwudhu.json
     - assets/data/bacaanadzan.json
+    - assets/data/asmaul-husna.json
     - assets/pic/bg_picture.png
     - assets/pic/pp_profil.jpg
     - assets/pic/instagram.png
