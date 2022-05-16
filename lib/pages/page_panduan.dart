@@ -98,7 +98,7 @@ class _PageSholatState extends State<PageSholat> {
               },
               name: 'Niat adzan',
               imageUrl:
-                  "https://assets10.lottiefiles.com/packages/lf20_nbrlt9yz.json",
+                  "https://assets4.lottiefiles.com/packages/lf20_8ggiuj23.json",
             ),
           ],
         ),
@@ -118,7 +118,7 @@ class _PageSholatState extends State<PageSholat> {
               },
               name: 'Niat Sholat',
               imageUrl:
-                  "https://assets10.lottiefiles.com/packages/lf20_nbrlt9yz.json",
+                  "https://assets8.lottiefiles.com/packages/lf20_bpj45jpp.json",
             ),
             CardSection(
               onTapAction: () {
