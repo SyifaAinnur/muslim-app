@@ -27,7 +27,9 @@ class CardAsmaul extends StatelessWidget {
           children: <Widget>[
             Text(
               arabic,
-              style: TextStyle(fontSize: 30.0),
+              style: TextStyle(fontSize: 30.0,
+              color: Color(0xff393E46)
+              ),
             ),
             SizedBox(
               height: 20.0,
@@ -39,7 +41,9 @@ class CardAsmaul extends StatelessWidget {
             Text(
               translate,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 10),
+              style: TextStyle(fontSize: 10,
+              color: Color(0xffC4C6BF)
+              ),
             ),
           ],
         ),
