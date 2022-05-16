@@ -15,7 +15,7 @@ class PageAsmaulHusna extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff29286C),
+        backgroundColor: Color(0xff6DDCCF),
         centerTitle: true,
         elevation: 0,
         title: Text("Asmaul Husna"),
@@ -36,8 +36,8 @@ class PageAsmaulHusna extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0xff29286C),
-                  Color(0xffE69ED8),
+                  Color(0xff6DDCCF),
+                  Color(0xff61E2B6),
                 ]
             ),
           ),

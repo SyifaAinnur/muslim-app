@@ -13,8 +13,12 @@ class CardAsmaul extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0.0,
+    return Container(
+      margin: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white,
+        ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
