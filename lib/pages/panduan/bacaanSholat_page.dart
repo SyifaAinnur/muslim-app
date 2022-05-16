@@ -20,7 +20,7 @@ class _BacaanSholatState extends State<BacaanSholat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0e1446),
+      backgroundColor: Color(0xff6DDCCF),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -107,6 +107,7 @@ class _BacaanSholatState extends State<BacaanSholat> {
                                 data: Theme.of(context)
                                     .copyWith(dividerColor: Colors.transparent),
                                 child: ExpansionTile(
+                                  
                                   title: Text(
                                     items[index].name.toString(),
                                     style: TextStyle(

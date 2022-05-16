@@ -19,7 +19,7 @@ class _NiatSholatState extends State<NiatSholat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xff6DDCCF),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -39,7 +39,7 @@ class _NiatSholatState extends State<NiatSholat> {
                     margin: EdgeInsets.only(top: 88),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: Color(0xff0e1446)
+                      color: Color(0xff44aca0)
                     ),
                     height: 200,
                     width: MediaQuery.of(context).size.width,
