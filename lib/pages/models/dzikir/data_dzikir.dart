@@ -229,3 +229,28 @@ List<Dzikir> dzikirPetang = [
   Dzikir("", "أَسْتَغْفِرُ اللهَ وَأَتُوْبُ إِلَيْهِ",
       "Astagh-firullah wa atuubu ilaih. \n\nArtinya: \n\n\“Aku memohon ampun kepada Allah dan bertobat kepada-Nya.\” [Dibaca 100 x dalam sehari].[18]\n\n[18] HR. Bukhari no. 6307 dan Muslim no. 2702."),
 ];
+
+List<Dzikir> dzikirSetelahSholat = [
+  Dzikir(
+    "Membaca Istighfar",
+    "أَسْتَغْفِرُ اللهَ الْعَظِـيْمِ الَّذِيْ لَااِلَهَ اِلَّا هُوَ الْحَيُّ الْقَيُّوْمُ وَأَتُوْبُ إِلَيْهِ ×٣" +
+    "\n\n" +
+    "Astaghfirullaahal ‘adziim alladzii laaailaaha illaa huwal hayyul qoyyuum wa atuubu ilaih.",
+  
+    "Aku memohon ampun kepada Allah yang maha agung , tiada Tuhan yang berhak disembah kecuali Allah , dzat yang maha hidup kekal abadi dan terus menerus mengurus makhluknya tiada henti. Dan aku bertaubat kepada-Nya."),
+  Dzikir(
+    "Membaca Dzikir Kalimat Tauhid",
+    "لَاإِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ يُحْيِيْ وَيُمِيْتُ وَهُوَ عَلَى كُلِّ شَيْئٍ قَدِيْرٌ" +
+    "\n\n" +
+    "Laaailaaha illallaah wahdahu laa syariikalah lahul mulku walahul hamdu yuhyii wayumiitu wahuwa ‘alaa kulli syain qodiir.",
+    "Tiada Tuhan yang haq disembah kecuali Allah semata, tiada sekutu baginya. Hanya milikinya segala kerajaan dan hanya milikinya segala puji, baik yang hidup atau mati, Dialah Dzat yang kuasa atas segala sesuatu.",
+  ),
+  Dzikir(
+    "Membaca Doa Selamat",
+    "اَللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلَامُ، وَإِلَيْكَ يَعُوْدُ السَّلَامُ فَحَيِّنَارَبَّنَا بِالسَّلَامِ وَاَدْخِلْنَا الْـجَنَّةَ دَارَ السَّلَامِ تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ يَا ذَاالْـجَلَالِ وَاْلإِكْرَام" +
+    "\n\n" +
+    "Allaahumma antas salaam waminkas salaam wa ilaika ya’uudus salaam fahayyinaa robbanaa bis salaam wa adkhilnal jannata daaros salaam tabaarokta robbanaa wa ta’aalaita yaa dzal jalaali wal ikroom.",
+    "Ya Allah, engkaulah Dzat yang memberi keselamatan (kesejahteraan), hanya darimu lah keselamatan (kesejahteraan) dan kepadamua lah segala keselamatan (kesejahteraan) itu kembali. Maka hidupkanlah kami Ya Allah dengan selamat (sejahtera), masukkan kami ke dalam surga rumah keselamatan (kesejahteraan), Engkaulah Dzat yang berkah wahai Tuhan kami dan maha luhur Engkau, Ya Tuhan kami yang Dzat yang memiliki keagungan dan kemuliaan.",
+  ),
+    
+];
