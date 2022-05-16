@@ -15,12 +15,15 @@ class MenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTapAction,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.white,
+            ),
         child: Container(
           height: 90,
           width: 80,
-          color: Colors.white,
+          // color: Colors.white,
           child: Column(
             children: [
               Padding(

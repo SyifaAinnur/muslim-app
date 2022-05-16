@@ -67,21 +67,20 @@ class _MenuPageState extends State<MenuPage> {
     var renunganProvider = Provider.of<RenunganProvider>(context);
     renunganProvider.getRenungan();
     return Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
-          centerTitle: false,
+          centerTitle: true,
           title: RichText(
             text: TextSpan(
-              text: "Hai, ",
-              style: TextStyle(
-                fontSize: 18,
-              ),
+              text: "Assalamualaikum,",
+              style: TextStyle(fontSize: 18, color: Colors.black),
               children: [
                 TextSpan(
-                  text: "Syifa",
+                  text: "sahabat",
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 )
               ],
             ),
@@ -94,13 +93,13 @@ class _MenuPageState extends State<MenuPage> {
                 width: 30,
                 height: 30,
                 child: Image.asset(
-                  "assets/asr.png",
+                  "assets/bismillah.png",
                   fit: BoxFit.contain,
                 ),
               ),
             ),
           ],
-          backgroundColor: Color(0xFFEC2028),
+          backgroundColor: Colors.transparent,
           elevation: 0,
         ),
         resizeToAvoidBottomInset: false,
@@ -110,141 +109,159 @@ class _MenuPageState extends State<MenuPage> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0xff29286C),
-                  Color(0xffE69ED8),
+                  Color(0xff6DDCCF),
+                  Color(0xff61E2B6),
                 ]),
           ),
           child: Stack(children: [
             ClipPath(
               clipper: ClipPathClass(),
               child: Container(
-                height: 250,
-                width: Get.width,
-                color: Color(0xFFEC2028),
-              ),
+                  height: 300,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/day_mode.png"),
+                          fit: BoxFit.cover))),
             ),
             Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: EdgeInsets.only(top: 90),
                 child: Column(children: [
                   Column(children: [
                     ClipPath(
-                        clipper: ClipInfoClass(),
+                        // clipper: ClipInfoClass(),
                         child: Container(
                             padding: EdgeInsets.all(15),
-                            margin: EdgeInsets.symmetric(horizontal: 25),
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color(0xFFE52D27),
-                                  Color(0xFFB31217),
-                                ],
-                              ),
-                            ),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        width: 200,
-                                        margin: EdgeInsets.only(top: 5),
-                                        child: FutureBuilder(
-                                          future: LocationServices()
-                                              .getCoordinate(),
-                                          builder: (context, snapshot) {
-                                            if (snapshot.hasData) {
-                                              return Text(
-                                                snapshot.data.toString(),
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white),
-                                              );
-                                            } else {
-                                              return Text(
-                                                'Loading...',
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white),
-                                              );
-                                            }
-                                          },
+                            margin: EdgeInsets.symmetric(horizontal: 5),
+
+                            // decoration: BoxDecoration(
+                            //   gradient: LinearGradient(
+                            //     colors: [
+                            //       Color(0xFF71EFA3),
+                            //       Color(0xFFD2FDBB),
+                            //     ],
+                            //   ),
+                            // ),
+                            child: Card(
+                                elevation: 0,
+                                color: Colors.white.withOpacity(0.8),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              width: 200,
+                                              margin: EdgeInsets.only(top: 5),
+                                              child: FutureBuilder(
+                                                future: LocationServices()
+                                                    .getCoordinate(),
+                                                builder: (context, snapshot) {
+                                                  if (snapshot.hasData) {
+                                                    return Text(
+                                                      snapshot.data.toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: Colors.black),
+                                                    );
+                                                  } else {
+                                                    return Text(
+                                                      'Loading...',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: Colors.black),
+                                                    );
+                                                  }
+                                                },
+                                              ),
+                                            ),
+                                            IconButton(
+                                                onPressed: () {
+                                                  LocationServices()
+                                                      .getCoordinate();
+                                                },
+                                                icon: Icon(
+                                                  Icons.location_on,
+                                                  color:
+                                                      const Color(0xFF50CB93),
+                                                )),
+                                          ],
                                         ),
-                                      ),
-                                      IconButton(
-                                          onPressed: () {
-                                            LocationServices().getCoordinate();
-                                          },
-                                          icon: Icon(
-                                            Icons.location_on,
-                                            color: Colors.white,
-                                          )),
-                                    ],
-                                  ),
-                                  SizedBox(height: 20),
-                                  Divider(
-                                    color: Colors.black,
-                                  ),
-                                  SizedBox(height: 10),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        formatted,
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 18),
-                                      ),
-                                      RichText(
-                                        text: TextSpan(children: <InlineSpan>[
-                                          WidgetSpan(
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(4.0),
-                                              child: Text(
-                                                _hijri.hDay.toString(),
-                                                style: TextStyle(
-                                                    fontSize: 18,
-                                                    color: Colors.white),
-                                              ),
+                                        SizedBox(height: 10),
+                                        Divider(
+                                          color: Colors.black,
+                                        ),
+                                        SizedBox(height: 10),
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              formatted,
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 18),
                                             ),
-                                          ),
-                                          WidgetSpan(
-                                            child: Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: Text(
-                                                _hijri.longMonthName,
-                                                style: TextStyle(
-                                                    fontSize: 18,
-                                                    color: Colors.white,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
+                                            RichText(
+                                              text: TextSpan(children: <
+                                                  InlineSpan>[
+                                                WidgetSpan(
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            4.0),
+                                                    child: Text(
+                                                      _hijri.hDay.toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 18,
+                                                          color: Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                                WidgetSpan(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(4.0),
+                                                    child: Text(
+                                                      _hijri.longMonthName,
+                                                      style: TextStyle(
+                                                          fontSize: 18,
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                ),
+                                                WidgetSpan(
+                                                  child: Padding(
+                                                    padding: EdgeInsets.all(4),
+                                                    child: Text(
+                                                      '${_hijri.hYear} AH',
+                                                      style: TextStyle(
+                                                          fontSize: 18,
+                                                          color: Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ]),
                                             ),
-                                          ),
-                                          WidgetSpan(
-                                            child: Padding(
-                                              padding: EdgeInsets.all(4),
-                                              child: Text(
-                                                '${_hijri.hYear} AH',
-                                                style: TextStyle(
-                                                    fontSize: 18,
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ),
-                                        ]),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                    ],
-                                  ),
-                                ])))
+                                          ],
+                                        ),
+                                      ]),
+                                )))),
                   ]),
                   Column(
                     children: [
@@ -255,7 +272,7 @@ class _MenuPageState extends State<MenuPage> {
                             width: 360,
                             height: 200,
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 14),
+                              padding: EdgeInsets.symmetric(horizontal: 9),
                               child: Column(children: [
                                 Row(
                                   mainAxisAlignment:
