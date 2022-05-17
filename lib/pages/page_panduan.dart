@@ -54,7 +54,7 @@ class _PageSholatState extends State<PageSholat> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 25),
+                        padding: const EdgeInsets.only(left: 8),
                         child: Column(
                           children: [
                             SizedBox(

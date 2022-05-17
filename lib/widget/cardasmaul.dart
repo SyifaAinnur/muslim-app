@@ -27,7 +27,7 @@ class CardAsmaul extends StatelessWidget {
           children: <Widget>[
             Text(
               arabic,
-              style: TextStyle(fontSize: 30.0,
+              style: TextStyle(fontSize: 25.0,
               color: Color(0xff393E46)
               ),
             ),
@@ -45,6 +45,7 @@ class CardAsmaul extends StatelessWidget {
               color: Color(0xff686D76)
               ),
             ),
+            
           ],
         ),
       ),

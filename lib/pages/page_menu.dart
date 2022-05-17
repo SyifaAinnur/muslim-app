@@ -158,7 +158,7 @@ class _MenuPageState extends State<MenuPage> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Container(
-                                              width: 200,
+                                              width: 220,
                                               margin: EdgeInsets.only(top: 5),
                                               child: FutureBuilder(
                                                 future: LocationServices()
