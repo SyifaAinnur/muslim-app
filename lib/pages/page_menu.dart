@@ -175,8 +175,7 @@ class _MenuPageState extends State<MenuPage> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 20),
+                                
                                   child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -186,7 +185,9 @@ class _MenuPageState extends State<MenuPage> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Container(
-                                              width: 220,
+
+                                                                                padding: const EdgeInsets.only(left: 20),
+                                              width: 230,
                                               margin: EdgeInsets.only(top: 5),
                                               child: FutureBuilder(
                                                 future: LocationServices()
@@ -233,65 +234,69 @@ class _MenuPageState extends State<MenuPage> {
                                           color: Colors.black,
                                         ),
                                         SizedBox(height: 10),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              formatted,
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 18),
-                                            ),
-                                            RichText(
-                                              text: TextSpan(children: <
-                                                  InlineSpan>[
-                                                WidgetSpan(
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            4.0),
-                                                    child: Text(
-                                                      _hijri.hDay.toString(),
-                                                      style: TextStyle(
-                                                          fontSize: 18,
-                                                          color: Colors.black),
+                                        Container(
+                                                                            padding: const EdgeInsets.only(left: 20),
+                                          child: Column(
+                                            
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                formatted,
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 18),
+                                              ),
+                                              RichText(
+                                                text: TextSpan(children: <
+                                                    InlineSpan>[
+                                                  WidgetSpan(
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              4.0),
+                                                      child: Text(
+                                                        _hijri.hDay.toString(),
+                                                        style: TextStyle(
+                                                            fontSize: 18,
+                                                            color: Colors.black),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                                WidgetSpan(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.all(4.0),
-                                                    child: Text(
-                                                      _hijri.longMonthName,
-                                                      style: TextStyle(
-                                                          fontSize: 18,
-                                                          color: Colors.black,
-                                                          fontWeight:
-                                                              FontWeight.bold),
+                                                  WidgetSpan(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(4.0),
+                                                      child: Text(
+                                                        _hijri.longMonthName,
+                                                        style: TextStyle(
+                                                            fontSize: 18,
+                                                            color: Colors.black,
+                                                            fontWeight:
+                                                                FontWeight.bold),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                                WidgetSpan(
-                                                  child: Padding(
-                                                    padding: EdgeInsets.all(4),
-                                                    child: Text(
-                                                      '${_hijri.hYear} AH',
-                                                      style: TextStyle(
-                                                          fontSize: 18,
-                                                          color: Colors.black),
+                                                  WidgetSpan(
+                                                    child: Padding(
+                                                      padding: EdgeInsets.all(4),
+                                                      child: Text(
+                                                        '${_hijri.hYear} AH',
+                                                        style: TextStyle(
+                                                            fontSize: 18,
+                                                            color: Colors.black),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ]),
-                                            ),
-                                          ],
+                                                ]),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ]),
-                                )))),
+                                )))
                   ]),
                   Column(
                     children: [
