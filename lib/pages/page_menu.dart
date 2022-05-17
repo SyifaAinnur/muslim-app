@@ -49,9 +49,34 @@ class _MenuPageState extends State<MenuPage> {
     return result;
   }
 
+  String Morningbg = 'assets/day_mode.png';
+  String Nightbg = 'assets/night_mode.png';
+  String Images;
+
+  String imageGet(){
+    var hour = DateTime.now().hour;
+    if(hour < 12){
+    Images = Morningbg;
+    
+    } else {
+    Images = Nightbg;
+    }
+    return Images;
+  }
+
+
   void initState() {
     super.initState();
     LocationServices().getCoordinate();
+  }
+
+  Color getTextColor() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return Colors.black;
+    } else {
+      return Colors.white;
+    }
   }
 
   AyaApiServices _ayaApiServices = AyaApiServices();
@@ -73,14 +98,15 @@ class _MenuPageState extends State<MenuPage> {
           title: RichText(
             text: TextSpan(
               text: "Assalamualaikum,",
-              style: TextStyle(fontSize: 18, color: Colors.black),
+              
+              style: TextStyle(fontSize: 18, color: getTextColor()),
               children: [
                 TextSpan(
                   text: "sahabat",
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black),
+                      color: getTextColor() ),
                 )
               ],
             ),
@@ -120,7 +146,9 @@ class _MenuPageState extends State<MenuPage> {
                   height: 300,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage("assets/day_mode.png"),
+                          image: AssetImage(
+                            imageGet(),
+                          ),
                           fit: BoxFit.cover))),
             ),
             Container(
