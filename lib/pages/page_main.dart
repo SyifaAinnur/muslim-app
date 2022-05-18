@@ -136,7 +136,7 @@ class _PageMainState extends State<PageMain> {
                 ),
                 leading: GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
+                    Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (context) => MenuPage()));
                   },
                   child: Icon(Icons.arrow_back),
