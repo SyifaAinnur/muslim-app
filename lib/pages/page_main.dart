@@ -11,11 +11,9 @@ import 'package:muslims_app/pages/quran/paget_ayat.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 // import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-
 import 'page_menu.dart';
 
 class PageMain extends StatefulWidget {
-
   @override
   _PageMainState createState() => _PageMainState();
 }
@@ -93,13 +91,11 @@ class _PageMainState extends State<PageMain> {
   }
 
   Future _getData() async {
-
     await _apiService.get(
         url: ApiUrl.surat,
         headers: {},
         callback: (status, message, response) {
           setState(() {
-            
             _pageLoading = false;
 
             if (listHasil.isNotEmpty) listHasil.clear();
@@ -127,7 +123,7 @@ class _PageMainState extends State<PageMain> {
             SliverOverlapAbsorber(
               handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
               sliver: SliverAppBar(
-                
+                automaticallyImplyLeading: false,
                 backgroundColor: Color(0xff6DDCCF),
                 pinned: true,
                 expandedHeight: 260,
@@ -140,11 +136,10 @@ class _PageMainState extends State<PageMain> {
                 ),
                 leading: GestureDetector(
                   onTap: () {
-                    /* Write listener code here */
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => MenuPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MenuPage()));
                   },
-                  child: Icon(Icons.arrow_back // add custom icons also
-                      ),
+                  child: Icon(Icons.arrow_back),
                 ),
                 actions: [
                   IconButton(
@@ -314,8 +309,8 @@ class _PageMainState extends State<PageMain> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  styleText(listHasil[index].nama, Size.size24,
-                      Colors.black, FontWeight.normal, 1, null),
+                  styleText(listHasil[index].nama, Size.size24, Colors.black,
+                      FontWeight.normal, 1, null),
                   styleText(
                       listHasil[index].arti +
                           ' | ' +
