@@ -12,22 +12,12 @@ class PageQiblat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Qiblat"),
-        elevation: 0,
-        backgroundColor: Color(0xff6DDCCF),
-
-       leading: GestureDetector(
-          onTap: () {
-            /* Write listener code here */
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MenuPage()));
-          },
-          child: Icon(Icons.arrow_back // add custom icons also
-              ),
+              appBar: AppBar(
+          centerTitle: true,
+          title: Text('Qiblat'),
+          elevation: 0,
+          backgroundColor: Color(0xff6DDCCF),
         ),
-      ),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(

@@ -372,11 +372,11 @@ class _MenuPageState extends State<MenuPage> {
                                   children: [
                                     MenuItem(
                                       onTapAction: () {
-                                        Navigator.of(context).pushReplacement(
+                                                                                Navigator.push(
+                                          context,
                                           MaterialPageRoute(
-                                            builder: (_) {
-                                              return PageQiblat();
-                                            },
+                                            builder: (context) =>
+                                                PageQiblat(),
                                           ),
                                         );
                                       },

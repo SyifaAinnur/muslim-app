@@ -44,21 +44,12 @@ class _PageCeramahState extends State<PageCeramah> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Ceramah Pilihan"),
-        elevation: 0,
-        backgroundColor: Color(0xff6DDCCF),
-        leading: GestureDetector(
-          onTap: () {
-            /* Write listener code here */
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => MenuPage()));
-          },
-          child: Icon(Icons.arrow_back // add custom icons also
-              ),
+              appBar: AppBar(
+          centerTitle: true,
+          title: Text('Ceramah Pilihan'),
+          elevation: 0,
+          backgroundColor: Color(0xff6DDCCF),
         ),
-      ),
       body: SafeArea(
         bottom: false,
         child: Container(
