@@ -52,8 +52,8 @@ class _PageCeramahState extends State<PageCeramah> {
         leading: GestureDetector(
           onTap: () {
             /* Write listener code here */
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MenuPage()));
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => MenuPage()));
           },
           child: Icon(Icons.arrow_back // add custom icons also
               ),
@@ -68,7 +68,7 @@ class _PageCeramahState extends State<PageCeramah> {
               end: Alignment.bottomCenter,
               colors: [
                 Color(0xff6DDCCF),
-                  Color(0xff61E2B6),
+                Color(0xff61E2B6),
               ],
             ),
           ),
