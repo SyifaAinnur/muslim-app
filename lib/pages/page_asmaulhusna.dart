@@ -14,20 +14,12 @@ class PageAsmaulHusna extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff6DDCCF),
-        centerTitle: true,
-        elevation: 0,
-        title: Text("Asmaul Husna"),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => MenuPage()));
-          },
-          child: Icon(
-            Icons.arrow_back
-          ),
+              appBar: AppBar(
+          centerTitle: true,
+          title: Text('Asmaul Husna'),
+          elevation: 0,
+          backgroundColor: Color(0xff6DDCCF),
         ),
-      ),
       body: SafeArea(
         bottom: false,
           child: Container(
